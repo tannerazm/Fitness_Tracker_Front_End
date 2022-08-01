@@ -27,7 +27,32 @@ const app = () => {
 
   return (
     <div>
-      <Header isLoggedIn={isLoggedIn}/>
+      <Header isLoggedIn={isLoggedIn} />
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <Login
+              setIsLoggedIn={setIsLoggedIn}
+              username={username}
+              password={password}
+              setUsername={setUsername}
+              setPassword={setPassword}
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Register
+              username={username}
+              password={password}
+              setUsername={setUsername}
+              setPassword={setPassword}
+            />
+          }
+        />
+      </Routes>
     </div>
   )
 };
