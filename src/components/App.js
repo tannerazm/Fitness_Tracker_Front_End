@@ -21,8 +21,15 @@ import {
 } from "./";
 
 const app = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  return (
+    <div>
+      <Header isLoggedIn={isLoggedIn}/>
+    </div>
+  )
 };
 
 export default app;
