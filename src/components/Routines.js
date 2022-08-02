@@ -16,8 +16,10 @@ const Routines = ({
   const [allRoutineFilteredData, setAllRoutineFilteredData] = useState([]);
   const [searchYourRoutines, setSearchYourRoutines] = useState("");
   const [searchAllRoutines, setSearchAllRoutines] = useState("");
+  const token = localStorage.getItem("token");
 
   // Filter function and useEffect used for only "Your Routines"
+    // NOT FINISHED YET, MAKE SURE PRIVATE ROUTINES SHOW UP
 
   function searchYourItems(searchValue) {
     if (searchValue.length) {
@@ -40,7 +42,7 @@ const Routines = ({
   }, [searchYourRoutines]);
 
   useEffect(() => {
-    userRoutines()
+    userRoutines(token)
       .then((object) => {
         setYourRoutines(object);
       })
@@ -50,6 +52,7 @@ const Routines = ({
   }, []);
 
   // Filter function and useEffect used for only "All Routines"
+
 
   function searchAllItems(searchValue) {
     if (searchValue.length) {

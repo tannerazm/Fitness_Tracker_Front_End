@@ -36,9 +36,12 @@ export async function loginPerson(username, password) {
     });
     const result = await response.json();
     const token = result.token;
-    localStorage.setItem("token", token);
-    localStorage.setItem("username", username);
-    return result;
+    
+    if (token) {
+      localStorage.setItem("token", token);
+      localStorage.setItem("username", username);
+      return result;
+    }
   } catch (error) {
     console.error(error);
   }
@@ -59,11 +62,12 @@ export async function verifyToken(token) {
   }
 }
 
-export async function userRoutines() {
+export async function userRoutines(token) {
   try {
     const response = await fetch(`${BASE}/api/users/${localStorage.getItem('username')}/routines`, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
       },
     });
     const result = await response.json();
@@ -101,4 +105,26 @@ export async function allActivities () {
   catch (error) {
     console.error(error)
   }
+}
+
+export async function addActivities (name, description, token) {
+  try {
+    console.log(token, "token", name, "name", description, "description")
+    const response = await fetch(`${BASE}/api/activities`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        description: description
+      })
+    })
+      const result = await response.json()
+      return result;
+  } catch (error) {
+    console.error(error)
+  }
+
 }

@@ -40,6 +40,8 @@ const Activities = ({ everyActivity, setEveryActivity }) => {
       return (
         <div className="allActivitiesContainer">
           <span>All Activities</span>
+          <br></br>
+          <NavLink to="/addactivities">Create an Activity</NavLink>
           <div className="allActivities">
             <br></br>
             <input

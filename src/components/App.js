@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+// const jwt = require("jsonwebtoken")
+// const { JWT_SECRET } = process.env;
 import {
   Activities,
   AddActivities,
@@ -78,6 +80,13 @@ const App = () => {
             <Activities
             everyActivity={everyActivity}
             setEveryActivity={setEveryActivity}
+            />
+          }
+        />
+        <Route
+          path="/addactivities"
+          element={
+            <AddActivities
             />
           }
         />

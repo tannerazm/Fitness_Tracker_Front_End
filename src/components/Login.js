@@ -14,10 +14,14 @@ const Login = ({
     const token = localStorage.getItem('token')
     async function handleSubmit(event) {
         event.preventDefault();
-        await loginPerson(username, password);
-        setIsLoggedIn(true);
-        await allActivities();
-        navigate('/')
+        const loggedInUser = await loginPerson(username, password);
+        if (loggedInUser) {
+            setIsLoggedIn(true);
+            await allActivities();
+            setUsername("")
+            setPassword("")
+            navigate('/')
+        }
     }
 
     return (
