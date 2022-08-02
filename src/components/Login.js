@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { loginPerson } from "../api";
+import { allActivities, loginPerson, verifyToken } from "../api";
 import "./index.css";
 
 const Login = ({
@@ -11,10 +11,13 @@ const Login = ({
     setIsLoggedIn
 }) => {
     const navigate = useNavigate();
+    const token = localStorage.getItem('token')
     async function handleSubmit(event) {
         event.preventDefault();
         await loginPerson(username, password);
         setIsLoggedIn(true);
+        await allActivities();
+        navigate('/')
     }
 
     return (

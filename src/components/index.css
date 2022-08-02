@@ -1,53 +1,81 @@
-/** All sections are labeled at the top with their respective JS file names. They are ordered alphabetically. **/
+/* All sections are labeled at the top with their respective JS file names. They are ordered alphabetically. */
 
+/* activities CSS here */
 
-/** activities CSS here **/
+/* add_activities CSS here */
 
+/* add_routine CSS here */
 
-/** add_activities CSS here **/
+/* delete_routine_activities CSS here */
 
+/* delete_routine CSS here */
 
-/** add_routine CSS here **/
+/* header CSS here */
 
+/* home CSS here */
 
-/** delete_routine_activities CSS here **/
+/* login CSS here */
 
+/* logout CSS here */
 
-/** delete_routine CSS here **/
+/* profile CSS here */
 
+/* register CSS here */
 
-/** header CSS here **/
+/* routine_activities CSS here */
 
+/* routines CSS here */
 
-/** home CSS here **/
+.routinesTitle {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
 
+.routinesContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  padding-top: 50px;
+}
 
-/** login CSS here **/
+.yourRoutinesContainer,
+.allRoutinesContainer {
+  text-align: center;
+  padding: 5px;
+  padding-top: 15px;
+  margin: 10px;
+  background-color: gray;
+  width: 48%;
+  height: 100vw;
+  overflow: scroll;
+}
 
+.yourRoutinesContainer::-webkit-scrollbar,
+.allRoutinesContainer::-webkit-scrollbar {
+  width: 20px;
+}
 
-/** logout CSS here **/
+.yourRoutinesContainer::-webkit-scrollbar-track,
+.allRoutinesContainer::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
 
+.yourRoutinesContainer::-webkit-scrollbar-thumb,
+.allRoutinesContainer::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
 
-/** profile CSS here **/
+.yourRoutinesContainer::-webkit-scrollbar-thumb:hover,
+.allRoutinesContainer::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
 
+/* update_activities CSS here */
 
-/** register CSS here **/
+/* update_routine_activities CSS here */
 
+/* update_routine CSS here */
 
-/** routine_activities CSS here **/
-
-
-/** routines CSS here **/
-
-
-/** update_activities CSS here **/
-
-
-/** update_routine_activities CSS here **/
-
-
-/** update_routine CSS here **/
-
-
-/** users CSS here **/
-
+/* users CSS here */

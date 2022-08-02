@@ -20,15 +20,19 @@ import {
   Users,
 } from "./";
 
-const app = () => {
+const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [yourRoutines, setYourRoutines] = useState([]);
+  const [everyRoutine, setEveryRoutine] = useState([]);
+  const [everyActivity, setEveryActivity] = useState([]);
 
   return (
     <div>
       <Header isLoggedIn={isLoggedIn} />
       <Routes>
+        <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
         <Route
           path="/login"
           element={
@@ -52,9 +56,34 @@ const app = () => {
             />
           }
         />
+        <Route
+          path="/logout"
+          element={<Logout setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route
+          path="/routines"
+          element={
+            <Routines
+              yourRoutines={yourRoutines}
+              setYourRoutines={setYourRoutines}
+              everyRoutine={everyRoutine}
+              setEveryRoutine={setEveryRoutine}
+              isLoggedIn={isLoggedIn}
+            />
+          }
+        />
+        <Route
+          path="/activities"
+          element={
+            <Activities
+            everyActivity={everyActivity}
+            setEveryActivity={setEveryActivity}
+            />
+          }
+        />
       </Routes>
     </div>
-  )
+  );
 };
 
-export default app;
+export default App;
