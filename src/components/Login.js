@@ -3,13 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { allActivities, loginPerson, verifyToken } from "../api";
 import "./index.css";
 
-const Login = ({
-    username,
-    password,
-    setUsername,
-    setPassword,
-    setIsLoggedIn
-}) => {
+const Login = ({ username, password, setUsername, setPassword, setIsLoggedIn }) => {
     const navigate = useNavigate();
     const token = localStorage.getItem('token')
     async function handleSubmit(event) {

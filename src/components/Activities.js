@@ -56,10 +56,10 @@ const Activities = ({ everyActivity, setEveryActivity }) => {
             />
             {allActivitiesFilteredData.length
               ? allActivitiesFilteredData.map((element) => {
-                  return <AllActivities element={element} />;
+                  return <AllActivities element={element} everyActivity={everyActivity} setEveryActivity={setEveryActivity}/>;
                 })
               : everyActivity.map((element) => {
-                  return <AllActivities element={element} />;
+                  return <AllActivities element={element} everyActivity={everyActivity} setEveryActivity={setEveryActivity}/>;
                 })}
           </div>
         </div>

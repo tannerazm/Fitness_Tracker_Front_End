@@ -4,6 +4,7 @@ import { userRoutines, allRoutines } from "../api";
 import AllRoutines from "./AllRoutines";
 import YourRoutines from "./YourRoutines";
 import "./index.css";
+import UpdateRoutine from "./UpdateRoutine";
 
 const Routines = ({
   yourRoutines,
@@ -19,7 +20,6 @@ const Routines = ({
   const token = localStorage.getItem("token");
 
   // Filter function and useEffect used for only "Your Routines"
-    // NOT FINISHED YET, MAKE SURE PRIVATE ROUTINES SHOW UP
 
   function searchYourItems(searchValue) {
     if (searchValue.length) {
@@ -86,7 +86,9 @@ const Routines = ({
 
   return (
     <div className="routinesPage">
-      <div className="routinesTitle">Get your workout on!</div>
+      <div className="routinesTitle">Get your workout on!
+      <NavLink to="/addroutines">Create a Routine</NavLink>
+      </div>
       <div className="routinesContainer">
         {
           isLoggedIn ?
