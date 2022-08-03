@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "./index.css";
 
 const RoutineActivities = () => {
-
+    
 }
 
 export default RoutineActivities;

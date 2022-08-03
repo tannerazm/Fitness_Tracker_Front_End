@@ -84,7 +84,7 @@ const App = () => {
         />
         <Route path="/addactivities" element={<AddActivities />} />
         <Route path="/addroutines" element={<AddRoutine />} />
-        <Route path="/RoutinesByActivity" element={<GetRoutinesWithActivity />} />
+        <Route path="/RoutinesByActivity/:id" element={<GetRoutinesWithActivity />} />
       </Routes>
     </div>
   );

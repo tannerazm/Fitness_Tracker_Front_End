@@ -51,6 +51,23 @@
   overflow: scroll;
 }
 
+.routinesWithActivities {
+  padding: 10px;
+  margin: 20px;
+  border: black 2px solid;
+}
+
+.routinesWithActivitiesActivity {
+  margin: 5px;
+  padding: 5px;
+  border: black 1px solid;
+}
+
+.routinesWithActivitiesRoutine {
+  margin: 5px;
+  padding: 5px;
+}
+
 .yourRoutinesContainer::-webkit-scrollbar,
 .allRoutinesContainer::-webkit-scrollbar {
   width: 20px;

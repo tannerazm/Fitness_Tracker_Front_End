@@ -93,6 +93,7 @@ export async function allRoutines() {
       },
     });
     const result = await response.json();
+    console.log(result, "result!!!!!!!!!!!!!!!")
     return result;
   } catch (error) {
     console.error(error);
@@ -154,7 +155,6 @@ export async function updateActivities(name, description, token, id) {
     console.error(error);
   }
 }
-
 export async function allRoutinesWithActivity(id) {
   const response = await fetch(`${BASE}/api/activities/${id}/routines`, {
     headers: {
@@ -164,7 +164,6 @@ export async function allRoutinesWithActivity(id) {
   const result = await response.json();
   return result;
 }
-
 export async function addRoutines(name, goal, token) {
   try {
     const response = await fetch(`${BASE}/api/routines`, {

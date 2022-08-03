@@ -19,6 +19,7 @@ const AllRoutines = ({ element }) => {
         {element.id}
       </p>
     </div>
+    
   );
 };
 
