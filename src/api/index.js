@@ -1,3 +1,5 @@
+import UpdateActivities from "../components/UpdateActivities";
+
 const BASE = `https://fitnesstrac-kr.herokuapp.com`;
 
 export async function registerPerson(username, password) {
@@ -36,10 +38,13 @@ export async function loginPerson(username, password) {
     });
     const result = await response.json();
     const token = result.token;
-    
+    const id = result.user.id;
+    console.log(result, "RESULT HERE PLEASE");
+
     if (token) {
       localStorage.setItem("token", token);
       localStorage.setItem("username", username);
+      localStorage.setItem("id", id);
       return result;
     }
   } catch (error) {
@@ -64,12 +69,15 @@ export async function verifyToken(token) {
 
 export async function userRoutines(token) {
   try {
-    const response = await fetch(`${BASE}/api/users/${localStorage.getItem('username')}/routines`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    });
+    const response = await fetch(
+      `${BASE}/api/users/${localStorage.getItem("username")}/routines`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     const result = await response.json();
     return result;
   } catch (error) {
@@ -91,40 +99,139 @@ export async function allRoutines() {
   }
 }
 
-export async function allActivities () {
+export async function allActivities() {
   try {
-    const response = await fetch(`${BASE}/api/activities`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    
-    let result = await response.json();
-    return result
-  }
-  catch (error) {
-    console.error(error)
-  }
-}
-
-export async function addActivities (name, description, token) {
-  try {
-    console.log(token, "token", name, "name", description, "description")
     const response = await fetch(`${BASE}/api/activities`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
+      },
+    });
+
+    let result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function addActivities(name, description, token) {
+  try {
+    console.log(token, "token", name, "name", description, "description");
+    const response = await fetch(`${BASE}/api/activities`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       method: "POST",
       body: JSON.stringify({
         name: name,
-        description: description
-      })
-    })
-      const result = await response.json()
-      return result;
+        description: description,
+      }),
+    });
+    const result = await response.json();
+    return result;
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
+}
 
+export async function updateActivities(name, description, token, id) {
+  try {
+    const response = await fetch(`${BASE}/api/activities/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      method: "PATCH",
+      body: JSON.stringify({
+        name: name,
+        description: description,
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function allRoutinesWithActivity(id) {
+  const response = await fetch(`${BASE}/api/activities/${id}/routines`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
+  return result;
+}
+
+export async function addRoutines(name, goal, token) {
+  try {
+    const response = await fetch(`${BASE}/api/routines`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        goal: goal,
+        isPublic: true,
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function updateRoutines(name, goal, id, token) {
+  const response = await fetch(`${BASE}/api/routines/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    method: "PATCH",
+    body: JSON.stringify({
+      name: name,
+      goal: goal,
+      isPublic: true,
+    }),
+  });
+  const result = await response.json();
+  return result;
+}
+
+export async function deleteRoutines(id, token) {
+  try {
+    const response = await fetch(`${BASE}/api/routines/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function attachActivityToRoutine(id, count, duration, token) {
+  const response = await fetch(`${BASE}/api/routines/${id}/activities`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    method: "POST",
+    body: JSON.stringify({
+      activityId: id,
+      count: count,
+      duration: duration,
+    }),
+  });
+  const result = await response.json();
+  return result;
 }

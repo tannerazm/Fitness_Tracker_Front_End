@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-// const jwt = require("jsonwebtoken")
-// const { JWT_SECRET } = process.env;
 import {
   Activities,
   AddActivities,
@@ -21,6 +19,7 @@ import {
   UpdateRoutine,
   Users,
 } from "./";
+import GetRoutinesWithActivity from "./GetRoutinesWithActivity";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -78,18 +77,14 @@ const App = () => {
           path="/activities"
           element={
             <Activities
-            everyActivity={everyActivity}
-            setEveryActivity={setEveryActivity}
+              everyActivity={everyActivity}
+              setEveryActivity={setEveryActivity}
             />
           }
         />
-        <Route
-          path="/addactivities"
-          element={
-            <AddActivities
-            />
-          }
-        />
+        <Route path="/addactivities" element={<AddActivities />} />
+        <Route path="/addroutines" element={<AddRoutine />} />
+        <Route path="/RoutinesByActivity" element={<GetRoutinesWithActivity />} />
       </Routes>
     </div>
   );

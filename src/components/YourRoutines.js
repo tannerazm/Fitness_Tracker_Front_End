@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import UpdateRoutine from "./UpdateRoutine";
 import "./index.css";
+import DeleteRoutine from "./DeleteRoutine";
 
 const YourRoutines = ({ element }) => {
+    console.log(element, "ELEMENT")
     return (
         <div>
             <h2>{element.name}</h2>
@@ -29,6 +32,12 @@ const YourRoutines = ({ element }) => {
                 <b>ID: </b>
                 {element.id}
             </p>
+            <UpdateRoutine
+                element_id={element.id}
+            />
+            <DeleteRoutine
+                element_id={element.id}
+            />
         </div>
     )
 }
