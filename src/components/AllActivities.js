@@ -10,7 +10,7 @@ const AllActivities = ({ element, everyActivity, setEveryActivity }) => {
 
   return (
     <div>
-      <h2>{element.name}</h2>
+      <NavLink to = {`/RoutinesByActivity/${element.id}`}>{element.name}</NavLink>
       <p>
         <b>Description: </b>
         {element.description}

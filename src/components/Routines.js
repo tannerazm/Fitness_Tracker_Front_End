@@ -137,6 +137,7 @@ const Routines = ({
                   return <AllRoutines element={element} />;
                 })
               : everyRoutine.map((element) => {
+                  
                   return <AllRoutines element={element} />;
                 })}
           </div>
