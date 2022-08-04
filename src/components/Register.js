@@ -7,8 +7,11 @@ const Register = ({ setUsername, setPassword, username, password }) => {
     const navigate = useNavigate();
     async function handleSubmit(event) {
         event.preventDefault();
+        try {
         await registerPerson(username, password);
-        
+        } catch (error) {
+            alert(error.message);
+        }
     }
     return (
         <div id="registerPage">

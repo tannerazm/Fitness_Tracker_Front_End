@@ -14,10 +14,6 @@ const AllActivities = ({ element, everyActivity, setEveryActivity }) => {
         <b>Description: </b>
         {element.description}
       </p>
-      <p>
-        <b>ID: </b>
-        {element.id}
-      </p>
       <UpdateActivities
         element_id={element.id}
         everyActivity={everyActivity}

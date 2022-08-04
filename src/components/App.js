@@ -29,6 +29,14 @@ const App = () => {
   const [everyRoutine, setEveryRoutine] = useState([]);
   const [everyActivity, setEveryActivity] = useState([]);
 
+  const token = localStorage.getItem('token')
+
+useEffect(() => {
+  if (token) {
+    setIsLoggedIn(true)
+  }
+}, [])
+
   return (
     <div>
       <Header isLoggedIn={isLoggedIn} />
@@ -39,6 +47,7 @@ const App = () => {
           element={
             <Login
               setIsLoggedIn={setIsLoggedIn}
+              isLoggedIn={isLoggedIn}
               username={username}
               password={password}
               setUsername={setUsername}
@@ -79,6 +88,7 @@ const App = () => {
             <Activities
               everyActivity={everyActivity}
               setEveryActivity={setEveryActivity}
+              isLoggedIn={isLoggedIn}
             />
           }
         />

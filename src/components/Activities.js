@@ -4,9 +4,11 @@ import { allActivities } from "../api";
 import AllActivities from "./AllActivities";
 import "./index.css";
 
-const Activities = ({ everyActivity, setEveryActivity }) => {
+const Activities = ({ everyActivity, setEveryActivity, isLoggedIn }) => {
     const [searchAllActivities, setSearchAllActivities] = useState("");
     const [allActivitiesFilteredData, setAllActivitiesFilteredData] = useState([]);
+    const token = localStorage.getItem('token')
+
     function searchAllItems(searchValue) {
         if (searchValue.length) {
           const data = everyActivity.filter((item) => {
@@ -40,7 +42,12 @@ const Activities = ({ everyActivity, setEveryActivity }) => {
         <div className="allActivitiesContainer">
           <span>All Activities</span>
           <br></br>
+          {
+          token ?
           <NavLink to="/addactivities">Create an Activity</NavLink>
+          :
+          null
+          }
           <div className="allActivities">
             <br></br>
             <input
