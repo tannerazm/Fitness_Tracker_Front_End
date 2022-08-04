@@ -6,6 +6,14 @@
   flex-direction: column;
   margin-top: 300px;
 }
+body{
+  background-image: url('https://64.media.tumblr.com/59f27fa6fd01cc1d4c4f490e89eeeed0/ad9f7c2850cd1df9-70/s1280x1920/f203b86afa69a909e3d668d96d78d1d792a7567c.gif');
+  background-size: cover;
+  height: 100vh;
+  padding:0;
+  margin:0;
+}
+
 .loginButton {
   width: 100px;
   height: 25px;
@@ -15,36 +23,51 @@
   border-style: none ;
   color: white;
   border-radius: 24px;
+  transition: .3s;
+  
 }
 .loginButton:hover {
   background-color: black;
   transition: .3s;
   width: 125px;
-
+  box-shadow: 2px 5px 8px #888888;
+  cursor:pointer;
 }
-/* .loginButton {
-  flex: 1 1 auto;
-  margin: 10px;
-  padding: 20px;
-  border: 2px solid #f7f7f7;
+
+/* login page CSS here */
+#loginPage, #registerPage, #logoutPage{
+  font-family: monospace;
+  font-size: larger;
+  font-weight: bold;
   text-align: center;
-  text-transform: uppercase;
-  position: relative;
-  overflow:hidden;
-  transition: .3s;
+  display: flexbox;
+  flex-direction: column;
+  margin-top: 300px;
 }
-  .loginButton:after {
-    position: absolute;
-    transition: .3s;
-    content: '';
-    width: 100%;
-    left: 0;
-    bottom: auto;
-    top: -3px;
-    height: 3px;
-    background: #f7f7f7;
-  } */
 
+.loginForm, #registerForm{
+  display:flexbox;
+}
+.input {
+  margin:5px;
+}
+
+.pageButton {
+  font-family: monospace;
+  font-size: 14px;
+  background-color: rgb(233, 91, 138) ;
+  border-style: none ;
+  color: white;
+  border-radius: 5px;
+  transition: .3s;
+  margin:5px;
+  
+}
+.pageButton:hover {
+  background-color: black;
+  transition: .3s;
+  cursor:pointer;
+}
 
 /* activities CSS here */
 
@@ -58,10 +81,11 @@
 
 /* header CSS here */
 #navbar {
-  background-color: rgb(233, 91, 138);
+  background-image: linear-gradient(to left, rgb(233, 91, 138), rgb(255, 196, 216));
   display: flex;
   justify-content: space-around;
   padding: 10px;
+  margin: -8px -8px 0px -8px;
 }
 #topbar {
   display: flex;
@@ -79,12 +103,19 @@
   color: white;
   font-weight: bold;
 }
+.pageLink {
+  margin: 7px;
+}
+.link:hover {
+  color: black;
+}
 #title {
   font-size:45px;
   font-style:italic;
   font-family: Changa One;
   color: white;
   text-shadow: 3px 3px 0px black;
+  text-decoration: none;
 
 
 }

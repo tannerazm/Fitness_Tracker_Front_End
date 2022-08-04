@@ -14,22 +14,22 @@ const Logout = ({ setIsLoggedIn }) => {
     const username = localStorage.getItem('username')
 
     return (
-        <>
+        <div id="logoutPage">
         <h1>Are you sure you want to log out of:</h1>
         <h2>{username}?</h2>
-        <NavLink to='/'>
+        <NavLink to='/' className="pageLink">
             Return Home
         </NavLink>
-        <NavLink to='/activities'>
+        <NavLink to='/activities' className="pageLink">
             Return to Activities
         </NavLink>
-        <NavLink to='/routines'>
+        <NavLink to='/routines' className="pageLink">
             Return to Routines
         </NavLink>
-        <button onClick={handleUserLogout}>
+        <button onClick={handleUserLogout} className="pageButton">
             Logout
         </button>
-        </>
+        </div>
     )
 }
 
