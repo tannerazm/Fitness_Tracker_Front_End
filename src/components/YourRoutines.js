@@ -32,10 +32,6 @@ const YourRoutines = ({ element }) => {
           No
         </p>
       )}
-      <p>
-        <b>ID: </b>
-        {element.id}
-      </p>
       <UpdateRoutine element_id={element.id} />
       <DeleteRoutine element_id={element.id} />
       {showAddForm == element.id ? (

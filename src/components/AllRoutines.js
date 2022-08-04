@@ -5,6 +5,7 @@ import "./index.css";
 
 const AllRoutines = ({ element }) => {
   const [showActivityForm, setShowActivityForm] = useState(null);
+  
   return (
     <div>
       <h2>{element.name}</h2>
@@ -23,14 +24,6 @@ const AllRoutines = ({ element }) => {
       <p>
         <b>Creator: </b>
         {element.creatorName}
-      </p>
-      <p>
-        <b>ID: </b>
-        {element.id}
-      </p>
-      <p>
-        <b>Creator ID: </b>
-        {element.creatorId}
       </p>
       {showActivityForm == element.id ? (
         <>

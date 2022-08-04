@@ -87,7 +87,12 @@ const Routines = ({
   return (
     <div className="routinesPage">
       <div className="routinesTitle">Get your workout on!
-      <NavLink to="/addroutines">Create a Routine</NavLink>
+      {
+        token ?
+        <NavLink to="/addroutines">Create a Routine</NavLink>
+        :
+        null
+      }
       </div>
       <div className="routinesContainer">
         {

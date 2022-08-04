@@ -6,6 +6,7 @@ import DeleteRoutineActivities from "./DeleteRoutineActivities";
 
 const ActivitiesOnRoutines = ({ element }) => {
   const [showDeleteAndUpdateForm, setShowDeleteAndUpdateForm] = useState(null);
+  const username = localStorage.getItem("username")
 
   return element.activities.map((activity) => (
     <>
@@ -15,27 +16,28 @@ const ActivitiesOnRoutines = ({ element }) => {
       <p>Description: {activity.description}</p>
       <p>Count: {activity.count}</p>
       <p>Duration: {activity.duration}</p>
-      <p>Activity ID: {activity.id}</p>
-      {showDeleteAndUpdateForm == element.id ? (
-        <>
-          <UpdateRoutineActivities activity={activity} />
-          <DeleteRoutineActivities activity={activity} />
-          <button
-            onClick={() => {
-              setShowDeleteAndUpdateForm(null);
-            }}
-          >
-            Cancel
-          </button>
-        </>
-      ) : (
+      {(element.creatorName != username) ? (
+        null
+      ) : showDeleteAndUpdateForm != element.id ? (
         <button
-          onClick={() => {
+        onClick={() => {
             setShowDeleteAndUpdateForm(element.id);
           }}
-        >
+          >
           Update + Delete Activity Here
         </button>
+        ) : (
+          <>
+            <UpdateRoutineActivities activity={activity} />
+            <DeleteRoutineActivities activity={activity} />
+            <button
+              onClick={() => {
+                setShowDeleteAndUpdateForm(null);
+              }}
+            >
+              Cancel
+            </button>
+          </>
       )}
     </>
   ));

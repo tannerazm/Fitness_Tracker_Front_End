@@ -3,11 +3,13 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { allActivities, loginPerson, verifyToken } from "../api";
 import "./index.css";
 
-const Login = ({ username, password, setUsername, setPassword, setIsLoggedIn }) => {
+const Login = ({ username, password, setUsername, setPassword, setIsLoggedIn, isLoggedIn}) => {
     const navigate = useNavigate();
     const token = localStorage.getItem('token')
+    
     async function handleSubmit(event) {
         event.preventDefault();
+    try {
         const loggedInUser = await loginPerson(username, password);
         if (loggedInUser) {
             setIsLoggedIn(true);
@@ -16,6 +18,9 @@ const Login = ({ username, password, setUsername, setPassword, setIsLoggedIn }) 
             setPassword("")
             navigate('/')
         }
+    } catch (error) {
+        alert(error.message)
+    }
     }
 
     return (
@@ -58,7 +63,6 @@ const Login = ({ username, password, setUsername, setPassword, setIsLoggedIn }) 
         </form>
         </div>
     )
-
     
 }
 

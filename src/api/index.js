@@ -15,12 +15,15 @@ export async function registerPerson(username, password) {
       }),
     });
     const result = await response.json();
+    if (result.error) {
+      throw result
+    }
     const token = result.token;
     localStorage.setItem("token", token);
     localStorage.setItem("username", username);
     return result;
   } catch (error) {
-    console.error(error);
+    throw error;
   }
 }
 
@@ -37,9 +40,12 @@ export async function loginPerson(username, password) {
       }),
     });
     const result = await response.json();
+    if (result.error) {
+      throw result
+    }
     const token = result.token;
     const id = result.user.id;
-
+    
     if (token) {
       localStorage.setItem("token", token);
       localStorage.setItem("username", username);
@@ -47,7 +53,7 @@ export async function loginPerson(username, password) {
       return result;
     }
   } catch (error) {
-    console.error(error);
+    throw error;
   }
 }
 
