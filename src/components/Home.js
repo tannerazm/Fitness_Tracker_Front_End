@@ -11,9 +11,11 @@ const Home = ({ isLoggedIn }) => {
     navigate("/login");
   }
   return (
-    <>
-      <h1 className="welcomeTitle">Welcome to Fitness Tracker</h1>
-      <h1 className="welcomeTitleTwo">Track Your Dreams.</h1>
+    <div id="homePage">
+      <div className="homeText">
+        <h1 className="welcomeTitle">Welcome to Fitness Tracker</h1>
+        <h1 className="welcomeTitleTwo">Track Your Dreams.</h1>
+      </div>
       {
       isLoggedIn ? (
         <>
@@ -25,12 +27,12 @@ const Home = ({ isLoggedIn }) => {
           </button>
         </>
       ) : (
-        <button onClick={handleSubmitLogin} className="loginHome">
+        <button className="loginButton" onClick={handleSubmitLogin}>
           LOGIN
         </button>
       )
       }
-    </>
+    </div>
   );
 };
 

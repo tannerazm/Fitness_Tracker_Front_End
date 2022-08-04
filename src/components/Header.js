@@ -5,22 +5,25 @@ import "./index.css";
 const Header = ({ isLoggedIn }) => {
   return (
     <div id="navbar">
-      <div>Fitness Tracker</div>
-      <div>Logged in as: {localStorage.getItem('username')}</div>
-      {!isLoggedIn ? (
-        <>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/register">Register</NavLink>
-        </>
-      ) : (
-        <>
-          <NavLink to="/routines">Routines</NavLink>
-          <NavLink to="/activities">Activities</NavLink>
-          <NavLink to="/profile">Profile</NavLink>
-          <NavLink to="/logout">Logout</NavLink>
-        </>
-      )}
+      <div id='title'>Fitness Tracker</div>
+
+      <div id='topbar'>
+        <div id="loggedin">Logged in as: {localStorage.getItem('username')}</div>
+        {!isLoggedIn ? (
+          <>
+            <NavLink to="/" className="link" id="firstbutton">Home</NavLink>
+            <NavLink to="/login" className="link">Login</NavLink>
+            <NavLink to="/register" className="link">Register</NavLink>
+          </>
+        ) : (
+          <>
+            <NavLink to="/routines" className="link" id="firstbutton">Routines</NavLink>
+            <NavLink to="/activities" className="link">Activities</NavLink>
+            <NavLink to="/profile" className="link">Profile</NavLink>
+            <NavLink to="/logout" className="link">Logout</NavLink>
+          </>
+        )}
+      </div>
     </div>
   );
 };
