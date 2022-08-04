@@ -11,12 +11,12 @@ const Register = ({ setUsername, setPassword, username, password }) => {
         
     }
     return (
-        <>
+        <div id="registerPage">
         <div>Register Your Account</div>
-        <form onSubmit={handleSubmit}>
-            <label>
+        <form onSubmit={handleSubmit} lass="registerForm">
+            <label lassName="inputLabel">
                 Username
-                <input 
+                <input className="input"
                     placeholder = "Enter username here..."
                     name = "username"
                     type = "text"
@@ -26,9 +26,9 @@ const Register = ({ setUsername, setPassword, username, password }) => {
                     }}
                 /> 
             </label>
-            <label>
+            <label lassName="inputLabel">
                 Password
-                <input 
+                <input className="input"
                     placeholder = "Enter password here..."
                     name = "password"
                     type = "password"
@@ -38,7 +38,7 @@ const Register = ({ setUsername, setPassword, username, password }) => {
                     }}
                 />
             </label>
-            <button type="submit">
+            <button type="submit" className="pageButton">
                 Register
             </button>
             <div>
@@ -48,7 +48,7 @@ const Register = ({ setUsername, setPassword, username, password }) => {
                 </NavLink>
             </div>
         </form>
-        </>
+        </div>
     )
 }
 

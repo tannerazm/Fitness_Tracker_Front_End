@@ -5,7 +5,7 @@ import "./index.css";
 const Header = ({ isLoggedIn }) => {
   return (
     <div id="navbar">
-      <div id='title'>Fitness Tracker</div>
+      <NavLink to="/" id='title'>Fitness Tracker</NavLink>
 
       <div id='topbar'>
         <div id="loggedin">Logged in as: {localStorage.getItem('username')}</div>

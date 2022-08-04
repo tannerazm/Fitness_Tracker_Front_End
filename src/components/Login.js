@@ -19,12 +19,12 @@ const Login = ({ username, password, setUsername, setPassword, setIsLoggedIn }) 
     }
 
     return (
-        <>
+        <div id="loginPage">
             <div> Login to Fitness Tracker! </div>
-            <form onSubmit={handleSubmit}>
-            <label>
+            <form onSubmit={handleSubmit} class="loginForm">
+            <label className="inputLabel">
                 Username
-                <input 
+                <input className="input"
                     placeholder = "Enter username here..."
                     name = "username"
                     type = "text"
@@ -34,9 +34,9 @@ const Login = ({ username, password, setUsername, setPassword, setIsLoggedIn }) 
                     }}
                 /> 
             </label>
-            <label>
+            <label className="inputLabel">
                 Password
-                <input 
+                <input className="input"
                     placeholder = "Enter password here..."
                     name = "password"
                     type = "password"
@@ -46,7 +46,7 @@ const Login = ({ username, password, setUsername, setPassword, setIsLoggedIn }) 
                     }}
                 />
             </label>
-            <button type="submit">
+            <button type="submit" className="pageButton">
                 Login
             </button>
             <div>
@@ -56,7 +56,7 @@ const Login = ({ username, password, setUsername, setPassword, setIsLoggedIn }) 
                 </NavLink>
             </div>
         </form>
-        </>
+        </div>
     )
 
     
