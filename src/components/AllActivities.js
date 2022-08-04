@@ -7,7 +7,6 @@ import "./index.css";
 
 const AllActivities = ({ element, everyActivity, setEveryActivity }) => {
   const navigate = useNavigate()
-
   return (
     <div>
       <NavLink to = {`/RoutinesByActivity/${element.id}`}>{element.name}</NavLink>

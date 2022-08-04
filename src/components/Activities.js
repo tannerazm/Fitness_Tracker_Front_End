@@ -7,7 +7,6 @@ import "./index.css";
 const Activities = ({ everyActivity, setEveryActivity }) => {
     const [searchAllActivities, setSearchAllActivities] = useState("");
     const [allActivitiesFilteredData, setAllActivitiesFilteredData] = useState([]);
-
     function searchAllItems(searchValue) {
         if (searchValue.length) {
           const data = everyActivity.filter((item) => {

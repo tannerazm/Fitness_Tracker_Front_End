@@ -108,10 +108,10 @@ const Routines = ({
             />
             {yourRoutineFilteredData.length
               ? yourRoutineFilteredData.map((element) => {
-                  return <YourRoutines element={element} />;
+                  return <YourRoutines element={element}/>;
                 })
               : yourRoutines.map((element) => {
-                  return <YourRoutines element={element} />;
+                  return <YourRoutines element={element}/>;
                 })}
           </div>
         </div>
@@ -137,8 +137,7 @@ const Routines = ({
                   return <AllRoutines element={element} />;
                 })
               : everyRoutine.map((element) => {
-                  
-                  return <AllRoutines element={element} />;
+                  return <AllRoutines element={element} everyRoutine={everyRoutine} />;
                 })}
           </div>
         </div>
