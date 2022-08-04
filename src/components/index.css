@@ -7,6 +7,25 @@
   margin-top: 300px;
 }
 
+.viewProfile {
+  width: 175px;
+  height: 25px;
+  font-family: monospace;
+  font-size: 18px;
+  background-color: rgb(233, 91, 138) ;
+  border-style: none ;
+  color: white;
+  border-radius: 24px;
+  transition: .3s;
+}
+.viewProfile:hover {
+  background-color: black;
+  transition: .3s;
+  width: 215px;
+  box-shadow: 2px 5px 8px #888888;
+  cursor:pointer;
+}
+
 #logo {
   width: 40px;
   float: left;
@@ -16,13 +35,15 @@
 
 body{
   background-image: url('https://64.media.tumblr.com/59f27fa6fd01cc1d4c4f490e89eeeed0/ad9f7c2850cd1df9-70/s1280x1920/f203b86afa69a909e3d668d96d78d1d792a7567c.gif');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   padding:0;
   margin:0;
 }
 
-.loginButton {
+.loginButton{
   width: 100px;
   height: 25px;
   font-family: monospace;
@@ -93,6 +114,9 @@ body{
   display: flex;
   justify-content: space-around;
   padding: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
   /* margin: -8px -8px 0px -8px; */
 }
 #topbar {
