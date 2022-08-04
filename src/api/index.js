@@ -39,7 +39,6 @@ export async function loginPerson(username, password) {
     const result = await response.json();
     const token = result.token;
     const id = result.user.id;
-    console.log(result, "RESULT HERE PLEASE");
 
     if (token) {
       localStorage.setItem("token", token);
@@ -93,7 +92,6 @@ export async function allRoutines() {
       },
     });
     const result = await response.json();
-    console.log(result, "result!!!!!!!!!!!!!!!")
     return result;
   } catch (error) {
     console.error(error);
@@ -117,7 +115,6 @@ export async function allActivities() {
 
 export async function addActivities(name, description, token) {
   try {
-    console.log(token, "token", name, "name", description, "description");
     const response = await fetch(`${BASE}/api/activities`, {
       headers: {
         "Content-Type": "application/json",
@@ -218,19 +215,46 @@ export async function deleteRoutines(id, token) {
   }
 }
 
-export async function attachActivityToRoutine(id, count, duration, token) {
-  const response = await fetch(`${BASE}/api/routines/${id}/activities`, {
+export async function attachActivityToRoutine( activityId, count, duration, routineId ) {
+  const response = await fetch(`${BASE}/api/routines/${routineId}/activities`, {
     headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json'
     },
     method: "POST",
     body: JSON.stringify({
-      activityId: id,
+      activityId: activityId,
       count: count,
       duration: duration,
     }),
   });
   const result = await response.json();
   return result;
+}
+
+export async function updateRoutineActivity (count, duration, id, token) {
+  const response = await fetch(`${BASE}/api/routine_activities/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    method: "PATCH",
+    body: JSON.stringify({
+      count: count,
+      duration: duration
+    })
+  })
+  const result = await response.json();
+  return result
+}
+
+export async function deleteRoutineActivity (routineActivityId, token) {
+  const response = await fetch(`${BASE}/api/routine_activities/${routineActivityId}`, {
+    method: "DELETE",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+  })
+  const result = await response.json()
+  return result
 }

@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { allRoutinesWithActivity } from "../api"
+// import AddActivityToRoutineForm from "./AddActivityToRoutineForm";
 import "./index.css";
 
 const GetRoutinesWithActivity = () => {
-    const [bob, setBob] = useState([]);
+    const [routinesWithActivities, setRoutinesWithActivities] = useState([]);
     const { id } = useParams();
     useEffect(() => {
-        async function joe() {
+        async function getAllRoutinesWithActivity() {
             const data = await allRoutinesWithActivity(id)
-            setBob(data);
+            setRoutinesWithActivities(data);
         }
-        joe()
+        getAllRoutinesWithActivity()
     }, [])
     let list = null;
-    if (bob.length) {
-        console.log(bob, "bob")
-        list = bob.map((element) => {
+    if (routinesWithActivities.length) {
+        list = routinesWithActivities.map((element) => {
             return (
                 <div className="routinesWithActivities">
                     <div className="routinesWithActivitiesRoutine" >
