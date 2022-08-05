@@ -20,10 +20,6 @@ const AllRoutines = ({ element }) => {
         <b>Public? </b>
         Yes
       </p>
-      <p>
-        <b>Creator: </b>
-        {element.creatorName}
-      </p>
       {showActivityForm == element.id ? (
         <>
           <ActivitiesOnRoutines routineId={element.id} element={element} />
