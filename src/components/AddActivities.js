@@ -43,7 +43,7 @@ const AddActivities = () => {
                         }}
                     />
                 </label>
-                <button type="submit">
+                <button type="submit" className="submitButton">
                     Create Activity
                 </button>
                 <div>

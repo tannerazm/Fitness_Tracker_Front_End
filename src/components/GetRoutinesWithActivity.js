@@ -18,6 +18,7 @@ const GetRoutinesWithActivity = () => {
   if (routinesWithActivities.length) {
     list = routinesWithActivities.map((element) => {
       return (
+        <div className="routinesWithActivitiesPage">
         <div className="routinesWithActivities">
           <div className="routinesWithActivitiesRoutine">
             <div>Creator Name: {element.creatorName}</div>
@@ -37,14 +38,16 @@ const GetRoutinesWithActivity = () => {
             ? element.activities.map((item) => {
                 return (
                   <div className="routinesWithActivitiesActivity">
-                    <div>Activity Name: {item.name}</div>
-                    <div>Activity Description: {item.description}</div>
-                    <div>Activity Duration: {item.duration}</div>
-                    <div>Activity Count: {item.count}</div>
+                    <div>Name: {item.name}</div>
+                    <div>Description: {item.description}</div>
+                    <div>Duration: {item.duration}</div>
+                    <div>Count: {item.count}</div>
                   </div>
                 );
               })
             : null}
+        <NavLink to="/activities">Back to all activities</NavLink>
+        </div>
         </div>
       );
     });

@@ -13,7 +13,7 @@ const DeleteRoutineActivities = ({activity}) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <button type='submit'>
+        <button type='submit' className="cancelButton">
             Delete
         </button>
       </form>

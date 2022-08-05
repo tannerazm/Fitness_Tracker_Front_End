@@ -15,10 +15,10 @@ const UpdateRoutineActivities = ({activity}) => {
 
   return (
     <>
-      <div> Update Activity Below </div>
+      <div> Update Activity Below </div><br></br>
       <form onSubmit={handleSubmit}>
         <label>
-          Count
+          Count {" "}
           <input
             placeholder="Enter count here..."
             name="count"
@@ -28,9 +28,9 @@ const UpdateRoutineActivities = ({activity}) => {
               setCount(event.target.value);
             }}
           />
-        </label>
+        </label><br></br><br></br>
         <label>
-          Duration
+          Duration {" "}
           <input
             placeholder="Enter duration here..."
             name="duration"
@@ -41,7 +41,8 @@ const UpdateRoutineActivities = ({activity}) => {
             }}
           />
         </label>
-        <button type="submit">Update</button>
+        <br></br><br></br>
+        <button type="submit" className="submitButton">Update</button >
       </form>
     </>
   );

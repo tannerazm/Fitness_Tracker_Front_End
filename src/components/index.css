@@ -1,3 +1,13 @@
+body{
+  background-image: url('https://64.media.tumblr.com/59f27fa6fd01cc1d4c4f490e89eeeed0/ad9f7c2850cd1df9-70/s1280x1920/f203b86afa69a909e3d668d96d78d1d792a7567c.gif');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding:0;
+  margin:0;
+}
+
 /* All sections are labeled at the top with their respective JS file names. They are ordered alphabetically. */
 #homePage {
   font-family: monospace;
@@ -31,16 +41,6 @@
   float: left;
   margin-top: 7px;
   margin-right: 4px;
-}
-
-body{
-  background-image: url('https://64.media.tumblr.com/59f27fa6fd01cc1d4c4f490e89eeeed0/ad9f7c2850cd1df9-70/s1280x1920/f203b86afa69a909e3d668d96d78d1d792a7567c.gif');
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  padding:0;
-  margin:0;
 }
 
 .loginButton{
@@ -81,7 +81,7 @@ body{
   margin:5px;
 }
 
-.pageButton {
+.pageButton, .submitButton {
   font-family: monospace;
   font-size: 14px;
   background-color: rgb(233, 91, 138) ;
@@ -90,19 +90,112 @@ body{
   border-radius: 5px;
   transition: .3s;
   margin:5px;
-  
 }
-.pageButton:hover {
+
+.cancelButton {
+  font-family: monospace;
+  font-size: 14px;
+  background-color: rgb(88, 88, 88) ;
+  border-style: none ;
+  color: white;
+  border-radius: 5px;
+  transition: .3s;
+  margin:5px;
+}
+
+.pageButton:hover, .submitButton:hover, .cancelButton:hover {
   background-color: black;
   transition: .3s;
   cursor:pointer;
 }
 
 /* activities CSS here */
+.allActivitiesPage, .routinesWithActivitiesPage {
+  margin-top: 100px;
+  text-align: center;
+  padding-top: 15px;
+  
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+
+
+
+.allActivitiesContainer, .routinesWithActivities {
+  margin-top: 100px;
+  flex-direction: column;
+  align-items: center;
+  font-family: monospace;
+  font-size: larger;
+  width: 30%;
+  height: 50vw;
+  overflow: scroll;
+  margin: 10px;
+  background-color: rgb(228, 228, 228);
+  border:rgb(233, 91, 138) 2px solid;
+  padding: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.routinesWithActivities {
+  height: auto;
+}
+
+.routinesWithActivitiesActivity{
+  padding-left: 15px;
+  padding-top: 15px;
+  text-align: left;
+}
+
+.indivActivity, .indivActivityOnRoutine, .routinesWithActivitiesActivity{
+  background-color:rgb(255, 255, 255);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  box-shadow: 2px 5px 8px #888888;
+  border: black solid 1px;
+  
+}
+
+.containerTitle {
+  font-size: 20px;
+  padding-top: 25px;
+}
 
 /* add_activities CSS here */
 
 /* add_routine CSS here */
+
+.createRoutinePage {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  font-family: monospace;
+  font-size: larger;
+}
+
+.createRoutine {
+  width: 250px;
+  text-align: center;
+  border:rgb(233, 91, 138) 2px solid;
+  padding: 15px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(224, 224, 224);
+}
+
+.createRoutineTitle {
+  font-size: 24px;
+}
 
 /* delete_routine_activities CSS here */
 
@@ -163,12 +256,43 @@ body{
 
 /* routine_activities CSS here */
 
+.addActivityToRoutineBox {
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: rgb(0, 0, 0) 2px solid;
+}
+
+/* .indivActivityOnRoutine {
+  border: rgb(0, 0, 0) 1px solid;
+} */
+
+.fieldset {
+  border: none;
+}
+/* .select {
+  border: none;
+} */
 /* routines CSS here */
 
-.routinesTitle {
+.routinesPage {
+  margin-top: 100px;
   display: flex;
   justify-content: center;
-  margin-top: 25px;
+  flex-direction: column;
+  align-items: center;
+  font-family: monospace;
+  font-size: larger;
+}
+
+.routinesTitle {
+  width: 250px;
+  text-align: center;
+  font-size: 20px;
+  border:rgb(233, 91, 138) 2px solid;
+  padding: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(224, 224, 224);
 }
 
 .routinesContainer {
@@ -184,30 +308,37 @@ body{
   padding: 5px;
   padding-top: 15px;
   margin: 10px;
-  background-color: rgb(184, 184, 184);
-  width: 48%;
+  background-color: rgb(228, 228, 228);
+  border:rgb(233, 91, 138) 2px solid;
+  padding: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(224, 224, 224);
+  margin-bottom: 30px;
+  
+  width: 30%;
   height: 50vw;
   overflow: scroll;
 }
 
-.routinesWithActivities {
+/* .routinesWithActivities {
   padding: 10px;
   margin: 20px;
   border: black 2px solid;
-}
+} */
 
-.routinesWithActivitiesActivity {
+/* .routinesWithActivitiesActivity {
   margin: 5px;
   padding: 5px;
-  border: black 1px solid;
-}
+  border: black px solid;
+} */
 
 .routinesWithActivitiesRoutine {
   margin: 5px;
   padding: 5px;
 }
 
-.yourRoutinesContainer::-webkit-scrollbar,
+/* .yourRoutinesContainer::-webkit-scrollbar,
 .allRoutinesContainer::-webkit-scrollbar {
   width: 20px;
 }
@@ -226,6 +357,18 @@ body{
 .yourRoutinesContainer::-webkit-scrollbar-thumb:hover,
 .allRoutinesContainer::-webkit-scrollbar-thumb:hover {
   background: #b30000;
+} */
+
+.indivRoutine {
+  background-color:rgb(255, 255, 255);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  box-shadow: 2px 5px 8px #888888;
+  border: black solid 2px;
 }
 
 /* update_activities CSS here */

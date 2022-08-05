@@ -9,7 +9,7 @@ const ActivitiesOnRoutines = ({ element }) => {
   const username = localStorage.getItem("username")
 
   return element.activities.map((activity) => (
-    <>
+    <div className="indivActivityOnRoutine">
       <p>
         <b>{activity.name}</b>
       </p>
@@ -19,7 +19,7 @@ const ActivitiesOnRoutines = ({ element }) => {
       {(element.creatorName != username) ? (
         null
       ) : showDeleteAndUpdateForm != element.id ? (
-        <button
+        <button className="submitButton"
         onClick={() => {
             setShowDeleteAndUpdateForm(element.id);
           }}
@@ -30,7 +30,7 @@ const ActivitiesOnRoutines = ({ element }) => {
           <>
             <UpdateRoutineActivities activity={activity} />
             <DeleteRoutineActivities activity={activity} />
-            <button
+            <button className="cancelButton"
               onClick={() => {
                 setShowDeleteAndUpdateForm(null);
               }}
@@ -39,7 +39,7 @@ const ActivitiesOnRoutines = ({ element }) => {
             </button>
           </>
       )}
-    </>
+    </div>
   ));
 };
 

@@ -11,7 +11,7 @@ const YourRoutines = ({ element }) => {
   const [showAddForm, setShowAddForm] = useState(null);
   const [showActivityForm, setShowActivityForm] = useState(null);
   return (
-    <div>
+    <div className="indivRoutine">
       <h2>{element.name}</h2>
       <p>
         <b>Creator: </b>
@@ -34,39 +34,19 @@ const YourRoutines = ({ element }) => {
       )}
       <UpdateRoutine element_id={element.id} />
       <DeleteRoutine element_id={element.id} />
-      {showAddForm == element.id ? (
-        <>
-          <AddActivityToRoutineForm routineId={element.id} element={element} />
-          <button
-            onClick={() => {
-              setShowAddForm(null);
-            }}
-          >
-            Cancel
-          </button>
-        </>
-      ) : (
-        <button
-          onClick={() => {
-            setShowAddForm(element.id);
-          }}
-        >
-          Add Activity Here
-        </button>
-      )}
       {showActivityForm == element.id ? (
         <>
           <ActivitiesOnRoutines routineId={element.id} element={element} />
-          <button
+          <button className="cancelButton"
             onClick={() => {
-                setShowActivityForm(null);
+              setShowActivityForm(null);
             }}
           >
             Cancel
           </button>
         </>
       ) : (
-        <button
+        <button className="submitButton"
           onClick={() => {
             setShowActivityForm(element.id);
           }}
@@ -74,6 +54,28 @@ const YourRoutines = ({ element }) => {
           See Activities Attached To Routines
         </button>
       )}
+      {showAddForm != element.id ? (
+        <button className="submitButton"
+          onClick={() => {
+            setShowAddForm(element.id);
+          }}
+        >
+          Add Activity Here
+        </button>
+      ) : (
+        <>
+          <AddActivityToRoutineForm routineId={element.id} element={element} />
+          <button className="cancelButton"
+            onClick={() => {
+              setShowAddForm(null);
+            }}
+          >
+            Cancel
+          </button>
+        </>
+
+      )}
+      
     </div>
   );
 };
