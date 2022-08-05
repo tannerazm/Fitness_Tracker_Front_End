@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { updateRoutines } from "../api";
 import "./index.css";
 
-const UpdateRoutine = ({ element_id }) => {
+const UpdateRoutine = ({ element_id, setYourRoutines, yourRoutines }) => {
     const navigate = useNavigate()
     const [name, setName] = useState("")
     const [goal, setGoal] = useState("")
@@ -11,7 +11,10 @@ const UpdateRoutine = ({ element_id }) => {
     async function handleSubmit(event) {
         event.preventDefault();
         const token = localStorage.getItem("token");
-        await updateRoutines(name, goal, element_id, token);
+        const updatedRoutine = await updateRoutines(name, goal, element_id, token);
+        setYourRoutines(yourRoutines.filter (routine => {
+            return routine !== updatedRoutine
+        }))
         navigate('/routines')
     } 
 

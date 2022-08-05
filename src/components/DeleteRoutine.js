@@ -7,8 +7,9 @@ const DeleteRoutine = ({ element_id }) => {
     async function handleSubmit (event) {
         event.preventDefault();
         const token = localStorage.getItem('token')
-        await deleteRoutines(element_id, token)
-    }
+        const deletedRoutine = await deleteRoutines(element_id, token)
+        setYourRoutines(yourRoutines.filter(routine => routine !== deletedRoutine))
+      }
 
   return (
     <form onSubmit={handleSubmit}>
