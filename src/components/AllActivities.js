@@ -4,6 +4,7 @@ import UpdateActivities from "./UpdateActivities";
 import "./index.css";
 
 const AllActivities = ({ element, everyActivity, setEveryActivity }) => {
+  const token = localStorage.getItem('token')
   return (
     <div>
       <div className="indivActivity">
@@ -15,11 +16,13 @@ const AllActivities = ({ element, everyActivity, setEveryActivity }) => {
           <b>Description: </b>
           {element.description}
         </p>
+        { token ?
         <UpdateActivities
           element_id={element.id}
           everyActivity={everyActivity}
           setEveryActivity={setEveryActivity}
         />
+        : null }
       </div>
     </div>
   );
