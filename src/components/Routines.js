@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { userRoutines, allRoutines } from "../api";
 import AllRoutines from "./AllRoutines";
 import YourRoutines from "./YourRoutines";
 import "./index.css";
-import UpdateRoutine from "./UpdateRoutine";
 
 const Routines = ({
   yourRoutines,
@@ -49,7 +48,7 @@ const Routines = ({
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [yourRoutines]);
 
   // Filter function and useEffect used for only "All Routines"
 
@@ -115,10 +114,10 @@ const Routines = ({
             />
             {yourRoutineFilteredData.length
               ? yourRoutineFilteredData.map((element) => {
-                  return <YourRoutines element={element}/>;
+                  return <YourRoutines element={element} yourRoutines={yourRoutines} setYourRoutines={setYourRoutines}/>;
                 })
               : yourRoutines.map((element) => {
-                  return <YourRoutines element={element}/>;
+                  return <YourRoutines element={element} yourRoutines={yourRoutines} setYourRoutines={setYourRoutines}/>;
                 })}
           </div>
         </div>

@@ -7,7 +7,7 @@ import AddActivities from "./AddActivities";
 import AddActivityToRoutineForm from "./AddActivityToRoutineForm";
 import ActivitiesOnRoutines from "./ActivitiesOnRoutines";
 
-const YourRoutines = ({ element }) => {
+const YourRoutines = ({ element, yourRoutines, setYourRoutines }) => {
   const [showAddForm, setShowAddForm] = useState(null);
   const [showActivityForm, setShowActivityForm] = useState(null);
   return (
@@ -32,8 +32,8 @@ const YourRoutines = ({ element }) => {
           No
         </p>
       )}
-      <UpdateRoutine element_id={element.id} />
-      <DeleteRoutine element_id={element.id} />
+      <UpdateRoutine element_id={element.id} yourRoutines={yourRoutines} setYourRoutines={setYourRoutines}/>
+      <DeleteRoutine element_id={element.id} yourRoutines={yourRoutines} setYourRoutines={setYourRoutines}/>
       {showActivityForm == element.id ? (
         <>
           <ActivitiesOnRoutines routineId={element.id} element={element} />
