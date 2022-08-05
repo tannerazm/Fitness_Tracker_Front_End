@@ -86,7 +86,7 @@ const Routines = ({
 
   return (
     <div className="routinesPage">
-      <div className="routinesTitle">Get your workout on!
+      <div className="routinesTitle">Get your workout on! <br></br><br></br>
       {
         token ?
         <NavLink to="/addroutines">Create a Routine</NavLink>
@@ -98,7 +98,9 @@ const Routines = ({
         {
           isLoggedIn ?
         <div className="yourRoutinesContainer">
+          <div className="containerTitle">
           <span>Your Routines</span>
+          </div>
           <div className="yourRoutines">
             <br></br>
             <input
@@ -124,7 +126,9 @@ const Routines = ({
         null
         }
         <div className="allRoutinesContainer">
+        <div className="containerTitle">
           <span>All Routines</span>
+          </div>
           <div className="allRoutines">
             <br></br>
             <input

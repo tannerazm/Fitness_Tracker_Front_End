@@ -19,9 +19,10 @@ const UpdateActivities = ({ element_id, everyActivity, setEveryActivity }) => {
     return (
         <>
             <div> Update Activity Below! </div>
+            <br></br>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Name
+                    Name {' '}
                     <input
                         placeholder="Enter activity name here..."
                         name="name"
@@ -32,8 +33,9 @@ const UpdateActivities = ({ element_id, everyActivity, setEveryActivity }) => {
                         }}
                     />
                 </label>
+                <br></br><br></br>
                 <label>
-                    Description
+                    Description {' '}
                     <input
                         placeholder="Enter activity description here..."
                         name="description"
@@ -43,9 +45,9 @@ const UpdateActivities = ({ element_id, everyActivity, setEveryActivity }) => {
                             setDescription(event.target.value);
                         }}
                     />
-                </label>
-                <button type="submit">
-                    Update Activity
+                </label><br></br><br></br>
+                <button type="submit" className="submitButton">
+                    Update Activity 
                 </button>
             </form>
         </>

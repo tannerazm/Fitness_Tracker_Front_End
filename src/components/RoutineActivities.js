@@ -11,7 +11,7 @@ const RoutineActivities = ({ item }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <button type='submit'>
+            <button type='submit' className="submitButton">
                 Add Activity To This Routine
             </button>
         </form>

@@ -27,11 +27,12 @@ const AddActivityToRoutineForm = ({ element, routineId }) => {
 
   return (
     <>
-      <p>Add An Activity To This Routine</p>
+      <p><b>Add An Activity To This Routine</b></p>
       <form onSubmit={handleSubmit}>
-      <fieldset>
-      <label htmlFor="select-classification">Activities <span className="classification-count">({ activityArray.length })</span></label>
-      <select 
+      <div className="addActivityToRoutineBox">
+      <fieldset className = "fieldset">
+      <label htmlFor="select-classification">Activities <span className="classification-count">({ activityArray.length })</span></label><br></br><br></br>
+      <select className="select"
         name="activities"
         id="select-activities"
         value={activityId} 
@@ -49,8 +50,10 @@ const AddActivityToRoutineForm = ({ element, routineId }) => {
         }
       </select>
     </fieldset>
+    </div>
+    <br></br>
         <label>
-          Count
+          Count {" "}
           <input
             placeholder="Enter count here..."
             name="count"
@@ -61,8 +64,9 @@ const AddActivityToRoutineForm = ({ element, routineId }) => {
             }}
           />
         </label>
+        <br></br> <br></br>
         <label>
-          Duration
+          Duration {" "}
           <input
             placeholder="Enter duration here..."
             name="duration"
@@ -73,7 +77,9 @@ const AddActivityToRoutineForm = ({ element, routineId }) => {
             }}
           />
         </label>
-        <button type="submit">Attach Activity</button>
+        <br></br>
+        <br></br>
+        <button className="submitButton" type="submit">Attach Activity</button>
       </form>
     </>
   );

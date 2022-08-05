@@ -12,7 +12,7 @@ const DeleteRoutine = ({ element_id }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <button type="submit">Delete Routine</button>
+      <button type="submit" className="cancelButton">Delete Routine</button>
     </form>
   );
 };

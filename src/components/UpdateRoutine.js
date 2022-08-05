@@ -19,9 +19,10 @@ const UpdateRoutine = ({ element_id }) => {
     return (
         <>
             <div> Update/Delete Routine Below! </div>
+            <br></br>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Name
+                    Name {" "}
                     <input
                         placeholder="Enter routine name here..."
                         name="name"
@@ -32,8 +33,9 @@ const UpdateRoutine = ({ element_id }) => {
                         }}
                     />
                 </label>
+                <br></br><br></br>
                 <label>
-                    Goal
+                    Goal {" "}
                     <input
                         placeholder="Enter routine goal here..."
                         name="description"
@@ -44,7 +46,8 @@ const UpdateRoutine = ({ element_id }) => {
                         }}
                     />
                 </label>
-                <button type="submit">
+                <br></br><br></br>
+                <button type="submit" className="submitButton">
                     Update Routine
                 </button>
             </form>

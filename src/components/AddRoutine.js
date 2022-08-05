@@ -16,11 +16,13 @@ const AddRoutine = () => {
 
 
     return (
-        <>
-            <div> Create Routine! </div>
+        <div className="createRoutinePage">
+            <div className='createRoutine'>
+            <div className="createRoutineTitle"> Create Routine! </div>
+            <br></br>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Name
+                    Name {' '}
                     <input
                         placeholder="Enter routine name here..."
                         name="name"
@@ -31,8 +33,9 @@ const AddRoutine = () => {
                         }}
                     />
                 </label>
+                <br></br><br></br>
                 <label>
-                    Goal
+                    Goal {' '}
                     <input
                         placeholder="Enter routine goal here..."
                         name="goal"
@@ -43,17 +46,21 @@ const AddRoutine = () => {
                         }}
                     />
                 </label>
-                <button type="submit">
+                <br></br><br></br>
+                <button type="submit" className="submitButton">
                     Create Routine
                 </button>
+                <br></br><br></br>
                 <div>
                     Return to {' '}
                     <NavLink to="/Routines">
                         routines.
                     </NavLink>
                 </div>
+                
             </form>
-        </>
+        </div>
+        </div>
     )
 }
 

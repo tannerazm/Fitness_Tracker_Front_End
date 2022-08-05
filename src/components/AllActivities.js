@@ -9,6 +9,8 @@ const AllActivities = ({ element, everyActivity, setEveryActivity }) => {
   const navigate = useNavigate()
   return (
     <div>
+      <div className="indivActivity">
+      <br></br>
       <NavLink to = {`/RoutinesByActivity/${element.id}`}>{element.name}</NavLink>
       <p>
         <b>Description: </b>
@@ -19,6 +21,7 @@ const AllActivities = ({ element, everyActivity, setEveryActivity }) => {
         everyActivity={everyActivity}
         setEveryActivity={setEveryActivity}
       />
+    </div>
     </div>
   );
 };

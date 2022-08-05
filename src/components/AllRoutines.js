@@ -7,7 +7,7 @@ const AllRoutines = ({ element }) => {
   const [showActivityForm, setShowActivityForm] = useState(null);
   
   return (
-    <div>
+    <div className="indivRoutine">
       <h2>{element.name}</h2>
       <p>
         <b>Creator: </b>
@@ -28,7 +28,7 @@ const AllRoutines = ({ element }) => {
       {showActivityForm == element.id ? (
         <>
           <ActivitiesOnRoutines routineId={element.id} element={element} />
-          <button
+          <button className="cancelButton"
             onClick={() => {
                 setShowActivityForm(null);
             }}
@@ -37,7 +37,7 @@ const AllRoutines = ({ element }) => {
           </button>
         </>
       ) : (
-        <button
+        <button className="submitButton"
           onClick={() => {
             setShowActivityForm(element.id);
           }}
