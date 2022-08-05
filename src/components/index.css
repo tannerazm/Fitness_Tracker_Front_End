@@ -175,7 +175,7 @@ body {
   padding-top: 25px;
 }
 
-.createRoutinePage {
+.createRoutinePage, .createActivityPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -185,8 +185,8 @@ body {
   font-size: larger;
 }
 
-.createRoutine {
-  width: 250px;
+.createRoutine, .createActivity {
+  width: 300px;
   text-align: center;
   border: rgb(233, 91, 138) 2px solid;
   padding: 15px;
@@ -195,7 +195,7 @@ body {
   background-color: rgb(224, 224, 224);
 }
 
-.createRoutineTitle {
+.createRoutineTitle, .createActivityTitle {
   font-size: 24px;
 }
 
@@ -315,4 +315,8 @@ body {
   padding-bottom: 15px;
   box-shadow: 2px 5px 8px #888888;
   border: black solid 2px;
+}
+
+.select {
+  width: 90%;
 }

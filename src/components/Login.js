@@ -19,7 +19,6 @@ const Login = ({
       const loggedInUser = await loginPerson(username, password);
       if (loggedInUser) {
         setIsLoggedIn(true);
-        await allActivities();
         setUsername("");
         setPassword("");
         navigate("/");

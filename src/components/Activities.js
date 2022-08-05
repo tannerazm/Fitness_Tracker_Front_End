@@ -4,7 +4,7 @@ import { allActivities } from "../api";
 import AllActivities from "./AllActivities";
 import "./index.css";
 
-const Activities = ({ everyActivity, setEveryActivity, isLoggedIn }) => {
+const Activities = ({ everyActivity, setEveryActivity }) => {
   const [searchAllActivities, setSearchAllActivities] = useState("");
   const [allActivitiesFilteredData, setAllActivitiesFilteredData] = useState(
     []
@@ -38,7 +38,7 @@ const Activities = ({ everyActivity, setEveryActivity, isLoggedIn }) => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [everyActivity]);
 
   return (
     <div className="allActivitiesPage">

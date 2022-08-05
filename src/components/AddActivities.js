@@ -15,11 +15,13 @@ const AddActivities = () => {
   }
 
   return (
-    <>
-      <div> Create Activity! </div>
+    <div className="createActivityPage">
+    <div className="createActivity">
+      <div className="createActivityTitle"> Create Activity! </div>
+      <br></br>
       <form onSubmit={handleSubmit}>
         <label>
-          Name
+          Name {' '}
           <input
             placeholder="Enter activity name here..."
             name="name"
@@ -30,8 +32,10 @@ const AddActivities = () => {
             }}
           />
         </label>
+        <br></br>
+        <br></br>
         <label>
-          Description
+          Description {' '}
           <input
             placeholder="Enter activity description here..."
             name="description"
@@ -42,14 +46,19 @@ const AddActivities = () => {
             }}
           />
         </label>
+        <br></br>
+        <br></br>
         <button type="submit" className="submitButton">
           Create Activity
         </button>
+        <br></br>
+        <br></br>
         <div>
           Return to <NavLink to="/Activities">activities.</NavLink>
         </div>
       </form>
-    </>
+    </div>
+    </div>
   );
 };
 

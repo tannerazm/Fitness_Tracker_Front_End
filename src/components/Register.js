@@ -1,13 +1,19 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { registerPerson } from "../api";
 import "./index.css";
 
 const Register = ({ setUsername, setPassword, username, password }) => {
+    const navigate = useNavigate()
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await registerPerson(username, password);
+      const registeredPerson = await registerPerson(username, password);
+      if (registeredPerson) {
+        setUsername("");
+        setPassword("");
+        navigate("/login");
+      }
     } catch (error) {
       alert(error.message);
     }
