@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import ActivitiesOnRoutines from "./ActivitiesOnRoutines";
 import "./index.css";
 
 const AllRoutines = ({ element }) => {
   const [showActivityForm, setShowActivityForm] = useState(null);
-  
+
   return (
     <div className="indivRoutine">
       <h2>{element.name}</h2>
@@ -28,16 +27,18 @@ const AllRoutines = ({ element }) => {
       {showActivityForm == element.id ? (
         <>
           <ActivitiesOnRoutines routineId={element.id} element={element} />
-          <button className="cancelButton"
+          <button
+            className="cancelButton"
             onClick={() => {
-                setShowActivityForm(null);
+              setShowActivityForm(null);
             }}
           >
             Cancel
           </button>
         </>
       ) : (
-        <button className="submitButton"
+        <button
+          className="submitButton"
           onClick={() => {
             setShowActivityForm(element.id);
           }}

@@ -4,20 +4,12 @@ import {
   Activities,
   AddActivities,
   AddRoutine,
-  DeleteRoutineActivities,
-  DeleteRoutine,
   Header,
   Home,
   Login,
   Logout,
-  Profile,
   Register,
-  RoutineActivities,
   Routines,
-  UpdateActivities,
-  UpdateRoutineActivities,
-  UpdateRoutine,
-  Users,
 } from "./";
 import GetRoutinesWithActivity from "./GetRoutinesWithActivity";
 
@@ -29,13 +21,13 @@ const App = () => {
   const [everyRoutine, setEveryRoutine] = useState([]);
   const [everyActivity, setEveryActivity] = useState([]);
 
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token");
 
-useEffect(() => {
-  if (token) {
-    setIsLoggedIn(true)
-  }
-}, [])
+  useEffect(() => {
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   return (
     <div>
@@ -94,7 +86,10 @@ useEffect(() => {
         />
         <Route path="/addactivities" element={<AddActivities />} />
         <Route path="/addroutines" element={<AddRoutine />} />
-        <Route path="/RoutinesByActivity/:id" element={<GetRoutinesWithActivity />} />
+        <Route
+          path="/RoutinesByActivity/:id"
+          element={<GetRoutinesWithActivity />}
+        />
       </Routes>
     </div>
   );
