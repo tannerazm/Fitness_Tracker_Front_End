@@ -32,7 +32,9 @@ const Routines = ({
           : false;
       });
 
-      data.length > 0 ? setYourRoutineFilteredData(data) : setYourRoutineFilteredData([]);
+      data.length > 0
+        ? setYourRoutineFilteredData(data)
+        : setYourRoutineFilteredData([]);
     }
   }
 
@@ -52,7 +54,6 @@ const Routines = ({
 
   // Filter function and useEffect used for only "All Routines"
 
-
   function searchAllItems(searchValue) {
     if (searchValue.length) {
       const data = everyRoutine.filter((item) => {
@@ -65,7 +66,11 @@ const Routines = ({
           : false;
       });
 
-      data.length > 0 ? setAllRoutineFilteredData(data) : data.length === 0 ? allRoutineFilteredData : setAllRoutineFilteredData([]);
+      data.length > 0
+        ? setAllRoutineFilteredData(data)
+        : data.length === 0
+        ? allRoutineFilteredData
+        : setAllRoutineFilteredData([]);
     }
   }
 
@@ -85,48 +90,54 @@ const Routines = ({
 
   return (
     <div className="routinesPage">
-      <div className="routinesTitle">Get your workout on! <br></br><br></br>
-      {
-        token ?
-        <NavLink to="/addroutines">Create a Routine</NavLink>
-        :
-        null
-      }
+      <div className="routinesTitle">
+        Get your workout on! <br></br>
+        <br></br>
+        {token ? <NavLink to="/addroutines">Create a Routine</NavLink> : null}
       </div>
       <div className="routinesContainer">
-        {
-          isLoggedIn ?
-        <div className="yourRoutinesContainer">
-          <div className="containerTitle">
-          <span>Your Routines</span>
+        {isLoggedIn ? (
+          <div className="yourRoutinesContainer">
+            <div className="containerTitle">
+              <span>Your Routines</span>
+            </div>
+            <div className="yourRoutines">
+              <br></br>
+              <input
+                id="searchYourRoutinesInput"
+                name="search-routines"
+                type="text"
+                value={searchYourRoutines}
+                placeholder="Search Your Routines..."
+                onChange={(event) => {
+                  setSearchYourRoutines(event.target.value);
+                }}
+              />
+              {yourRoutineFilteredData.length
+                ? yourRoutineFilteredData.map((element) => {
+                    return (
+                      <YourRoutines
+                        element={element}
+                        yourRoutines={yourRoutines}
+                        setYourRoutines={setYourRoutines}
+                      />
+                    );
+                  })
+                : yourRoutines.map((element) => {
+                    return (
+                      <YourRoutines
+                        element={element}
+                        yourRoutines={yourRoutines}
+                        setYourRoutines={setYourRoutines}
+                      />
+                    );
+                  })}
+            </div>
           </div>
-          <div className="yourRoutines">
-            <br></br>
-            <input
-              id="searchYourRoutinesInput"
-              name="search-routines"
-              type="text"
-              value={searchYourRoutines}
-              placeholder="Search Your Routines..."
-              onChange={(event) => {
-                setSearchYourRoutines(event.target.value);
-              }}
-            />
-            {yourRoutineFilteredData.length
-              ? yourRoutineFilteredData.map((element) => {
-                  return <YourRoutines element={element} yourRoutines={yourRoutines} setYourRoutines={setYourRoutines}/>;
-                })
-              : yourRoutines.map((element) => {
-                  return <YourRoutines element={element} yourRoutines={yourRoutines} setYourRoutines={setYourRoutines}/>;
-                })}
-          </div>
-        </div>
-        :
-        null
-        }
+        ) : null}
         <div className="allRoutinesContainer">
-        <div className="containerTitle">
-          <span>All Routines</span>
+          <div className="containerTitle">
+            <span>All Routines</span>
           </div>
           <div className="allRoutines">
             <br></br>
@@ -145,7 +156,12 @@ const Routines = ({
                   return <AllRoutines element={element} />;
                 })
               : everyRoutine.map((element) => {
-                  return <AllRoutines element={element} everyRoutine={everyRoutine} />;
+                  return (
+                    <AllRoutines
+                      element={element}
+                      everyRoutine={everyRoutine}
+                    />
+                  );
                 })}
           </div>
         </div>

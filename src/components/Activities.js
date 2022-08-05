@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { allActivities } from "../api";
 import AllActivities from "./AllActivities";
 import "./index.css";
 
 const Activities = ({ everyActivity, setEveryActivity, isLoggedIn }) => {
   const [searchAllActivities, setSearchAllActivities] = useState("");
-  const [allActivitiesFilteredData, setAllActivitiesFilteredData] = useState([]);
-  const token = localStorage.getItem('token')
+  const [allActivitiesFilteredData, setAllActivitiesFilteredData] = useState(
+    []
+  );
+  const token = localStorage.getItem("token");
 
   function searchAllItems(searchValue) {
     if (searchValue.length) {
       const data = everyActivity.filter((item) => {
-        return item.name
-          .toLowerCase()
-          .includes(searchValue.toLowerCase()) ||
+        return item.name.toLowerCase().includes(searchValue.toLowerCase()) ||
           item.description.toLowerCase().includes(searchValue.toLowerCase())
           ? true
           : false;
       });
 
-      data.length > 0 ? setAllActivitiesFilteredData(data) : setAllActivitiesFilteredData([]);
+      data.length > 0
+        ? setAllActivitiesFilteredData(data)
+        : setAllActivitiesFilteredData([]);
     }
   }
 
@@ -43,14 +45,13 @@ const Activities = ({ everyActivity, setEveryActivity, isLoggedIn }) => {
       <div className="allActivitiesContainer">
         <div className="containerTitle">
           <span>All Activities</span>
-          </div>
+        </div>
         <br></br>
-        {
-          token ?
-            <NavLink to="/addactivities" className="containerTitle">Create an Activity</NavLink>
-            :
-            null
-        }
+        {token ? (
+          <NavLink to="/addactivities" className="containerTitle">
+            Create an Activity
+          </NavLink>
+        ) : null}
         <div className="allActivities">
           <br></br>
           <input
@@ -67,15 +68,27 @@ const Activities = ({ everyActivity, setEveryActivity, isLoggedIn }) => {
           <br></br>
           {allActivitiesFilteredData.length
             ? allActivitiesFilteredData.map((element) => {
-              return <AllActivities element={element} everyActivity={everyActivity} setEveryActivity={setEveryActivity} />;
-            })
+                return (
+                  <AllActivities
+                    element={element}
+                    everyActivity={everyActivity}
+                    setEveryActivity={setEveryActivity}
+                  />
+                );
+              })
             : everyActivity.map((element) => {
-              return <AllActivities element={element} everyActivity={everyActivity} setEveryActivity={setEveryActivity} />;
-            })}
+                return (
+                  <AllActivities
+                    element={element}
+                    everyActivity={everyActivity}
+                    setEveryActivity={setEveryActivity}
+                  />
+                );
+              })}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Activities;

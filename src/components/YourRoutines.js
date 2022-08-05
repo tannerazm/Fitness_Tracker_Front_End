@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import UpdateRoutine from "./UpdateRoutine";
 import "./index.css";
 import DeleteRoutine from "./DeleteRoutine";
-import AddActivities from "./AddActivities";
 import AddActivityToRoutineForm from "./AddActivityToRoutineForm";
 import ActivitiesOnRoutines from "./ActivitiesOnRoutines";
 
 const YourRoutines = ({ element, yourRoutines, setYourRoutines }) => {
   const [showAddForm, setShowAddForm] = useState(null);
   const [showActivityForm, setShowActivityForm] = useState(null);
+  
   return (
     <div className="indivRoutine">
       <h2>{element.name}</h2>
@@ -32,12 +31,21 @@ const YourRoutines = ({ element, yourRoutines, setYourRoutines }) => {
           No
         </p>
       )}
-      <UpdateRoutine element_id={element.id} yourRoutines={yourRoutines} setYourRoutines={setYourRoutines}/>
-      <DeleteRoutine element_id={element.id} yourRoutines={yourRoutines} setYourRoutines={setYourRoutines}/>
+      <UpdateRoutine
+        element_id={element.id}
+        yourRoutines={yourRoutines}
+        setYourRoutines={setYourRoutines}
+      />
+      <DeleteRoutine
+        element_id={element.id}
+        yourRoutines={yourRoutines}
+        setYourRoutines={setYourRoutines}
+      />
       {showActivityForm == element.id ? (
         <>
           <ActivitiesOnRoutines routineId={element.id} element={element} />
-          <button className="cancelButton"
+          <button
+            className="cancelButton"
             onClick={() => {
               setShowActivityForm(null);
             }}
@@ -46,7 +54,8 @@ const YourRoutines = ({ element, yourRoutines, setYourRoutines }) => {
           </button>
         </>
       ) : (
-        <button className="submitButton"
+        <button
+          className="submitButton"
           onClick={() => {
             setShowActivityForm(element.id);
           }}
@@ -55,7 +64,8 @@ const YourRoutines = ({ element, yourRoutines, setYourRoutines }) => {
         </button>
       )}
       {showAddForm != element.id ? (
-        <button className="submitButton"
+        <button
+          className="submitButton"
           onClick={() => {
             setShowAddForm(element.id);
           }}
@@ -65,7 +75,8 @@ const YourRoutines = ({ element, yourRoutines, setYourRoutines }) => {
       ) : (
         <>
           <AddActivityToRoutineForm routineId={element.id} element={element} />
-          <button className="cancelButton"
+          <button
+            className="cancelButton"
             onClick={() => {
               setShowAddForm(null);
             }}
@@ -73,9 +84,7 @@ const YourRoutines = ({ element, yourRoutines, setYourRoutines }) => {
             Cancel
           </button>
         </>
-
       )}
-      
     </div>
   );
 };
