@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { updateActivities } from "../api";
 import "./index.css";
 
-const UpdateActivities = ({ element_id }) => {
-  const navigate = useNavigate();
+const UpdateActivities = ({ element_id, everyActivity, setEveryActivity }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    await updateActivities(name, description, token, element_id);
-    navigate("/activities");
+    const updatedActivity = await updateActivities(name, description, token, element_id);
+    setEveryActivity(everyActivity.filter((activity) => {
+        return activity !== updatedActivity;
+    }))
   }
 
   return (
